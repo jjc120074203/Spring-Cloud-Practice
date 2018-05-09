@@ -1,0 +1,12 @@
+#文件1
+server:
+  port: 5001
+spring:
+  application:
+    name: spring-cloud-portal-gateway
+eureka:
+  instance:
+   prefer-ip-address: true
+  client: 
+    service-url: 
+      defaultZone: http://admin:1q2w3e4r!@127.0.0.1:1234/eureka/

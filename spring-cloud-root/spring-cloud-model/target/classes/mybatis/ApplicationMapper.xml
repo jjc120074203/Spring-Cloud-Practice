@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kimdeath.dao.ApplicationMapper" >
+
+    <select id="getApplicationsByUserId" resultType="com.kimdeath.domain.Application">
+
+        select id, name, user_id from application where user_id = #{userId}
+
+    </select>
+	
+	<select id="getAllApplication" resultType="com.kimdeath.domain.ApplicationDTO">
+		select * from svc_application 
+	</select>
+</mapper>

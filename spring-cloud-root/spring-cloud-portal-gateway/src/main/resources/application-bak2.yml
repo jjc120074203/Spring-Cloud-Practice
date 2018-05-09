@@ -1,0 +1,44 @@
+#文件2
+server:
+  port: 5001
+spring:
+  application:
+    name: spring-cloud-portal-gateway
+eureka:
+  instance:
+   prefer-ip-address: true
+  client: 
+    service-url: 
+      defaultZone: http://admin:1q2w3e4r!@127.0.0.1:1234/eureka/
+# 配置单个模块的实例      start
+#zuul:
+#  ignoredServices: "'*'"
+#  routes:
+#    spring-cloud-model: /model/**
+# end 
+
+
+#详细配置多个模块内容 start
+#zuul:
+#  ignoredServices: spring-cloud-portal
+#  routes: 
+#    abc: 
+#      path: /myusers/**
+#      serviceId: spring-cloud-file-system
+#详细配置多个模块内容 end
+
+#负载均衡配置---代理多个模块 start
+zuul:
+  routes: 
+    abc: 
+      path: /file/**
+      serviceId: spring-cloud-file-system
+      
+ribbon:
+  eureka:
+    enabled: false
+
+spring-cloud-file-system: 
+  ribbon:
+    listOfServers: http://localhost:1002,http://localhost:1003     
+#负载均衡配置---代理多个模块 end

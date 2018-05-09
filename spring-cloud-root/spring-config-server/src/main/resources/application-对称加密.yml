@@ -1,0 +1,17 @@
+#1.采用 命令 curl ip/encrypt -d 加密的key[kimdeath] 生成 A
+#2.在github中encrypt-bak.yml 文件中写入'{cipher}+A'
+#3.访问的时候http://localhost:7070/master/encrypt-bak.properties
+#4.如果加密文件 不是在*.yml中的数据的话，而是*.properties 中不能加'' xxx={cipher}+A
+#5.非常重要的一点:在加密过程中 kimdeath不能中途 改变 如果改变了，需要重新生成 通过1步骤生成Key值 此时就会找不到当前配置文件《n/a》
+server:
+  port: 7070
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jjc120074203/Config-Server.git
+          username: 
+          password: 
+encrypt: 
+   key: kimdeath

@@ -1,0 +1,16 @@
+SynchronousQueue 、LinkedBlockingQueue、ArrayListBlockingQueue异同:
+
+1.从边界性来看的话:SynchronousQueue,LinkedBlockingQueue属于 无界的 
+ ,ArrayListBlockingQueue是有界的。
+ 
+2.机制行来说。:SynchronousQueue 特点 生产者生产了，如果消费者没有消费的话，当前队列就必须阻塞，一个生产对应一个消费
+	LinkedBlockingQueue、ArrayListBlockingQueue 符合队列基本特性。
+
+3.线程安全性:都是线程安全的 
+
+4.结构方面:LinkedBlockingQueue 采用的是锁分离的方法进行维护，采用两把锁进行内部数据结构Node型变量的维护 生产用的是putLock，消费是takeLock
+   ArrayListBlockingQueue 采用一把锁进行维护的   
+
+5.性能方法:SynchronousQueue 相对较为稳定，LinkedBlockingQueue在高并发读写操作都多的情况
+下， 性能会较ArrayBlockingQueue 好很多. 
+

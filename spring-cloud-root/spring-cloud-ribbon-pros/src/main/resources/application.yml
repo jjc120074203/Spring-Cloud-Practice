@@ -1,0 +1,25 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: spring-cloud-ribbon
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring-boot?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: admin
+    
+#注册中心指向start    
+eureka:
+  instance:
+    instance-id: spring-cloud-ribbon
+    appname: ${spring.application.name}
+  client: 
+    service-url: 
+      defaultZone: http://admin:1q2w3e4r!@127.0.0.1:1234/eureka/
+#注册中心指向end
+#Ribbon使用规则 spring-cloud-file-system要使用的RibbonClient
+spring-cloud-file-system:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

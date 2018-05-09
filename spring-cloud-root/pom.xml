@@ -1,0 +1,78 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.spring.cloud</groupId>
+  <artifactId>spring-cloud-root</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.1.RELEASE</version><!-- 1.4.0不能进行 包冲突 会出现注册  -->
+    </parent>
+  <modules>
+  	<module>file-system</module>
+  	<module>spring-cloud-file-system</module>
+  	<module>spring-eureka-register</module>
+  	<module>spring-cloud-ribbon</module>
+  	<module>spring-cloud-ribbon-pros</module>
+  	<module>spring-cloud-rabbit-mq</module>
+  	<module>spring-cloud-hystrix-dashboard</module>
+	<module>spring-cloud-hystrix-turbine</module>
+	<module>spring-cloud-portal-gateway</module>
+  	<module>spring-cloud-portal</module>
+  	<module>spring-cloud-eureka-ha</module>
+  	<module>spring-design-method</module>
+	<module>spring-eureka-config-server</module>
+	<module>spring-eureka-config-client</module>
+	<module>spring-config-server</module>
+	<module>spring-cloud-common</module>
+  </modules>
+  
+  <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Dalston.SR1</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+  <dependencies>
+ 	   <!-- 依赖底层公共数据支持包 start -->
+   		<dependency>
+			<groupId>com.spring.cloud</groupId>
+			<artifactId>spring-cloud-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- 依赖底层公共数据支持包 end -->
+  </dependencies>
+   <build>
+        <finalName>spring-cloud-root</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+  
+</project>

@@ -1,0 +1,33 @@
+server: 
+  port: 2222  
+spring:
+  application:
+    name: spring-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://192.168.1.249:8003/chenjl/Spring-Config-Common.git
+          #default-label: master
+          username: chenjl
+          password: pass01!23
+          repos:
+            develop:
+              pattern:
+                - "*/*"
+#              uri: https://github.com/jjc120074203/Spring-Config-Server.git
+              uri: http://192.168.1.249:8003/chenjl/Spring-Config-Server.git 
+              searchPaths: '{application}'
+              username: chenjl
+              password: pass01!23
+      
+#把config Server 注册到eureka 上面
+eureka:
+  instance:
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client: 
+    service-url: 
+      defaultZone: http://admin:1q2w3e4r!@127.0.0.1:1234/eureka/
+          

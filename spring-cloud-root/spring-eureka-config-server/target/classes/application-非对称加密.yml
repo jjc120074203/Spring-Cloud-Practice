@@ -1,0 +1,23 @@
+# http://www.micmiu.com/lang/java/keytool-start-guide/
+#1.打开 控制台  通过证书控制器 keytool -genkeypair -alias myspringkey -keyalg RSA -keypass changeme -keystore server.jks -storepass letmein
+#2.把server.jks放入代码 resource中
+#3.启动 config-server  进入curl控制台 >curl -X  POST http://localhost:7070/encrypt -d 加密数据   生成A
+#4.把数据文件中写入'{cipher}+A' 就可以访问了
+server:
+  port: 7070
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jjc120074203/Config-Server.git
+          username: 
+          password: 
+#对阵加密配置
+encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    password: letmein
+    alias: myspringkey
+    secret: changeme
+          

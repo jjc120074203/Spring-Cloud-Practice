@@ -1,0 +1,25 @@
+add        增加一个元索                     如果队列已满，则抛出一个IIIegaISlabEepeplian异常
+remove   移除并返回队列头部的元素    如果队列为空，则抛出一个NoSuchElementException异常
+element  返回队列头部的元素             如果队列为空，则抛出一个NoSuchElementException异常
+
+
+put         添加一个元素               如果队列满了，一直阻塞，直到数组不满了或者线程被中断-->阻塞
+offer       添加一个元素并返回true     如果队列没满，立即返回true； 如果队列满了，立即返回false-->不阻塞
+offer(E e, long timeout, TimeUnit unit)：
+在队尾插入一个元素,，如果数组已满，则进入等待，直到出现以下三种情况：-->阻塞
+ 1.被唤醒
+   2.等待时间超时
+   	3.当前线程被中断
+
+peek() 查看队列头元素 返回队列头部的元素             如果队列为空，则返回null
+
+
+take        移除并返回队列头部的元素     如果队列为空，则阻塞
+poll         移除并返问队列头部的元素    如果队列为空，则返回null
+poll(long timeout, TimeUnit unit)：
+如果数组不空，出队；如果数组已空且已经超时，返回null；如果数组已空且时间未超时，则进入等待，直到出现以下三种情况：
+1.被唤醒
+    2.等待时间超时
+   		 3.当前线程被中断
+
+

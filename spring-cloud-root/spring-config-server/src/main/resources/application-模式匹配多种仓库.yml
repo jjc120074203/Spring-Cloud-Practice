@@ -1,0 +1,14 @@
+# 模式匹配
+server:
+  port: 7070
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jjc120074203/Config-Server.git #采用公用 如果 simple,与special拿不到的话就默认获取
+          repos:
+            simple: https://github.com/jjc120074203/Spring-Cloud-Demo-One.git  # 访问 ip+/master/simple-default.properties
+            special:
+              pattern: special*/dev*,*special*/test*         #文件格式匹配 {application}-{profile}.yml  访问 ip+/master/special-dev/test.properties
+              uri: https://github.com/jjc120074203/Spring-Cloud-Demo-Two.git

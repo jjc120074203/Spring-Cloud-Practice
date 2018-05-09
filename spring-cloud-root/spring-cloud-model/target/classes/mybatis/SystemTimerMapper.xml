@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kimdeath.dao.SystemTimerMapper" >
+
+    <select id="querySystemTimerByName" resultType="com.kimdeath.domain.SystemTimer">
+
+        select * from system_timer where targetMethod=#{targetMethod} and targetClass=#{targetClass} and sysType=#{sysType}
+        and time_rank=0
+
+    </select>
+	
+	<insert id="saveSystemTimer" parameterType="com.kimdeath.domain.SystemTimer">
+		insert  into system_timer
+		(id,targetMethod,targetClass,cronExpression,created_at,sysType,time_rank)
+		values(#{id},#{targetMethod},#{targetClass},#{cronExpression},now(),#{sysType},#{time_rank})
+	</insert>
+</mapper>

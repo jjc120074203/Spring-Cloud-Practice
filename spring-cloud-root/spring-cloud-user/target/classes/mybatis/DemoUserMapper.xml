@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kimdeath.dao.UserMapper" >
+
+    <select id="getUsers" resultType="com.kimdeath.domain.User">
+      SELECT id, name, nick_name, descr ,deleted from demo_user
+    </select>
+
+    <select id="getUserById" parameterType="String" resultType="com.kimdeath.domain.User">
+        SELECT id, name, nick_name, descr ,deleted from demo_user where id = #{id}
+    </select>
+
+    <select id="getUserByName" resultType="com.kimdeath.domain.User">
+        SELECT id, name, nick_name, descr from demo_user where name = #{name}
+    </select>
+
+   <delete id="delUserById">
+               delete from demo_user where id = #{id}
+    </delete>
+
+    <insert id="create" parameterType="com.kimdeath.domain.User" useGeneratedKeys="true" keyProperty="id">
+        insert into demo_user(name, nick_name, descr) values(#{name}, #{nickName}, #{descr})
+    </insert>
+    
+    <!--   底层数据异常 - demo2 -->
+    <insert id="testCreateExp1" parameterType="com.kimdeath.domain.User" useGeneratedKeys="true" keyProperty="id">
+        insert into demo_user(name, nick_name, descr) values('testExp', '异常王', '草帽海贼团剑士。目标：世界第一的大剑豪草帽海贼团剑士。目标：世界第一的大剑豪')
+    </insert>
+
+</mapper>

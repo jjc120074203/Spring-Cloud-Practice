@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: spring-cloud-eureka-ha
+  profiles: 
+    active: peer2    
+---
+server:
+  port: 1000
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1
+  client:
+  #表示是否注册自身到eureka服务器列表是否有当前信息
+    registerWithEureka: false
+  #表示是否从自身的eureka服务器获取信息
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer2:1001/eureka/
+---
+server:
+  port: 1001
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2
+  client:
+  #表示是否注册自身到eureka服务器
+    registerWithEureka: false
+  #表示是否从自身的eureka服务器获取信息
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer1:1000/eureka/
+

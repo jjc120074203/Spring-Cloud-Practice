@@ -1,0 +1,5 @@
+server:
+  port: 7071
+#如果远程文件中和内部文件中存在相同文件的话 ，还是以远程文件为准
+remote: 
+     param: local-param

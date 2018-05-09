@@ -1,0 +1,14 @@
+# 解决配置加载问题   
+# 账户密码可以采用两种方式  http://admin:1q2w3e4r!@localhost:7070 #curl style方式 另一种如下方式
+
+spring:
+  cloud:
+    config:
+       uri: http://localhost:7070
+       username: admin
+       password: 1q2w3e4r!
+       #远程文件后缀profile名称 {application}-{profile}.yml
+       profile: bak
+       label: master       
+  application: 
+    name: encrypt

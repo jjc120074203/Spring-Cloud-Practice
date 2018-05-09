@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cable-common
+  labels:
+    component: cable-common
+    kubernetes.io/cluster-service: "true"
+    kubernetes.io/name: "cable-common"
+spec:
+  ports:
+    - port: 8060
+      nodePort: 31115
+  selector:
+    name: cable-common
+  type: NodePort
+

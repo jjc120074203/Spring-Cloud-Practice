@@ -1,0 +1,20 @@
+server: 
+  port: 1240
+spring:
+  application:
+    name: spring-cloud-user  
+  cloud:
+    config:
+     discovery: 
+      enabled: true
+      service-id: spring-config-server
+#定义配置文件后缀:{application}-{profiles}.properites,去服务器上找spring-cloud-user-dev.yml
+  profiles:
+      active: dev
+     
+#注册中心指向start    
+eureka:
+  client: 
+    service-url: 
+      defaultZone: http://admin:1q2w3e4r!@127.0.0.1:1234/eureka/
+#注册中心指向end

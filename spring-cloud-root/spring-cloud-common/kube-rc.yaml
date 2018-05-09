@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: cable-common
+spec:
+  replicas: 1
+  selector:
+    name: cable-common
+  template:
+    metadata:
+      labels:
+        name: cable-common
+    spec:
+      containers:
+        - name: cable-common
+          image: registry.isspaas.com/cityinsight/cable-common:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8060

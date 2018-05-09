@@ -1,0 +1,20 @@
+server:
+  port: 1234
+security: 
+    basic: 
+        enable: true
+    user: 
+        name: admin
+        password: 1q2w3e4r!
+eureka:
+  server: 
+    enableSelfPreservation: false
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://admin:1q2w3e4r!@${eureka.instance.hostname}:${server.port}/eureka/
+
+

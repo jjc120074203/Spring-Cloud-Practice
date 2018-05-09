@@ -1,0 +1,25 @@
+server:
+  port: 1003
+
+spring:
+  application:
+#    name: spring-cloud-file-system-bak
+#    name: spring-cloud-file-system-v1
+    name: spring-cloud-file-system
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring-boot?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: admin
+    
+#注册中心指向start 不指定当前实例eureka的 instance:  instance-id 和name 此时可以一个服务名称下注册多个实例 
+eureka:
+#指定当前client的名称 和id 指定表示唯一start
+#  instance:
+#    instance-id: spring-cloud-rabbit-mq
+#    appname: ${spring.application.name}
+#指定当前client的名称 和id 指定表示唯一end
+  client: 
+    service-url: 
+      defaultZone: http://admin:1q2w3e4r!@127.0.0.1:1234/eureka/
+#注册中心指向end

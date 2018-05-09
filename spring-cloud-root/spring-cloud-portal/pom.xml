@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.spring.cloud</groupId>
+		<artifactId>spring-cloud-root</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>spring-cloud-portal</artifactId>
+	<dependencies>
+		<!-- spring-cloud 客服端 start -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		<!-- spring-cloud 客服端 end -->
+
+		<!-- 监控管理生产环境模块 start 访问日志中的 方法 /health /env -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- 监控管理生产环境模块 end 访问日志中的 方法 /health /env -->
+
+		<!-- fegin 代码依赖 start -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
+		</dependency>
+		<!-- fegin 代码依赖 start -->
+
+		<!-- Hystrix 代码依赖 start -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+		<!-- Hystrix 代码依赖 start -->
+		<!-- fegin multipartFile 格式化 需要的包 文件 -start -->
+		<dependency>
+			<groupId>com.netflix.feign</groupId>
+			<artifactId>feign-jackson</artifactId>
+			<version>8.17.0</version>
+		</dependency>
+		<!-- fegin multipartFile 格式化 需要的包 文件 -end -->
+		<!-- spring-cloud config 使用配置 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+	</dependencies>
+</project>
